@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: taha Mehr, Uni, LIC=ZB4Y8-3YVV6-NLUCG-VMVGI-IRF7Y-7UXVE
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARM.DLL V5.24.1
+Dialog DLL:      DARMP.DLL V1.53.0.0
+Target DLL:      UL2ARM.DLL V1.74.10.0
+Dialog DLL:      TARMP.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+D:\Embedded Systems\Projects\1\uVision\LED_board.uvproj
+Project File Date:  03/13/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling main.c...
+main.c(7): warning:  #1295-D: Deprecated declaration initialize - give arg types
+  void initialize();
+main.c(26): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c(16): warning:  #177-D: variable "counter"  was declared but never referenced
+  	int counter = 0;
+main.c: 3 warnings, 0 errors
+assembling Startup.s...
+linking...
+Program Size: Code=492 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+".\Objects\Counter.axf" - 0 Error(s), 3 Warning(s).
+Build Time Elapsed:  00:00:10
+</pre>
+</body>
+</html>
