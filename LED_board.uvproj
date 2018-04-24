@@ -429,6 +429,11 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>taha.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\taha.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
