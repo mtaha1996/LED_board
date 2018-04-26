@@ -4,7 +4,7 @@
 //#include "taha.h"
 //int data[16][70]= []
 
-int taha_asl[16][16] = {
+unsigned char taha[16][16] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1},
 	{0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1},
@@ -23,42 +23,33 @@ int taha_asl[16][16] = {
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int taha[16][16] = {	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},	
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-											{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-}; 
+// Global variables
+int speed=1;
+int dir=1;
+unsigned char board[16][24];
 
-	int counter = 1;
+
+// Functions
 void initialize();
 void delay();
-void show(int,int);
-unsigned char conv_for_decoder(unsigned char inp);
- 
+void show(unsigned char[16][24]);
+void start_board(); 
+void set_board();
+void clr_board();
 
 
 
 int main()
 {
 	initialize();
-	
-	int counter = 0;
+	clr_board();
+	set_board();
 	
 	while (1)
 	{
-		show(3,4);
+		
+		start_board();
+		
 
 	}
 	
@@ -74,40 +65,46 @@ void initialize()
 	IO0DIR = 0x001FFFFF; // Bit 0-20 of Port 0 is Output
 }
 
-void  show(int shift, int speed)
+void show(unsigned char brd[16][24])
 {
-
 	int value;
 	int counter = 0;
-	
 	while(counter<24){
 		value = 0;	
-		IOPIN0 =  0x001FFFE0;
-		
+		IOPIN0 =  0x001FFFE0; // bit 5-20 set to 1
 		IOSET0 = counter;
-
 		for(int i = 0 ; i <16 ; i++){
 				if (counter < 16){
-					if (taha_asl[i][counter]==1){
+					if (brd[i][counter]==1){
 					value += 1 << i;
-
 					}
 				}
 			}
-		
-
-		IOCLR0 = value << 5 ;
-
-		
+		IOCLR0 = value << 5 ;		
 		delay();
 		counter++;
-
 	}
 	counter = 0;
+}
+
+void delay1(){
+	int i = 10000000;
+	
+	while(i>0) i--;
+}
+
+void start_board(){
+		
+	show(board);
+	if(IOPIN0 & 1<< 21){ // set direction
+		dir = 1;
+	}
+	else {
+		dir = 0;
+	}
 
 
 }
-
 
 void delay(){
 
@@ -116,9 +113,29 @@ void delay(){
 	while(i>0) i--;
 }
 
+void clr_board(){
 
-unsigned char conv_for_decoder(unsigned char inp){
+	for(int i=0;i<16;i++){
+		for(int j=0;j<24;j++){
+			board[i][j] = 0;		
+		}	
+	}
+}
 
+void set_board(){
+
+	for(int i = 0 ; i <16 ; i++){
+				for(int j = 0 ; j <24 ; j++){
+					if (taha[i][j]==1){
+						board[i][j] = 1;
+					}
+					else {
+						board[i][j] = 0;					
+					}
+				}
+			}
 
 
 }
+
+

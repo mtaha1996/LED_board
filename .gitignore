@@ -9,3 +9,4 @@ Objects/LED_board_Target 1.dep
 *.dep
 *.uvopt
 *.TAHA
+taha.h

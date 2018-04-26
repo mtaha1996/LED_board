@@ -21,26 +21,32 @@ Target DLL:      UL2ARM.DLL V1.74.10.0
 Dialog DLL:      TARMP.DLL V1.53.0.0
  
 <h2>Project:</h2>
-D:\Embedded Systems\Projects\1\uVision\LED_board.uvproj
-Project File Date:  03/13/2018
+D:\Embedded Systems\Projects\1\uVision\LED_board\LED_board.uvproj
+Project File Date:  04/20/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling main.c...
-main.c(7): warning:  #1295-D: Deprecated declaration initialize - give arg types
-  void initialize();
-main.c(26): warning:  #111-D: statement is unreachable
-  	return 0;
-main.c(16): warning:  #177-D: variable "counter"  was declared but never referenced
-  	int counter = 0;
-main.c: 3 warnings, 0 errors
 assembling Startup.s...
+compiling main.c...
+main.c(33): warning:  #1295-D: Deprecated declaration initialize - give arg types
+  void initialize();
+main.c(34): warning:  #1295-D: Deprecated declaration delay - give arg types
+  void delay();
+main.c(36): warning:  #1295-D: Deprecated declaration start_board - give arg types
+  void start_board(); 
+main.c(37): warning:  #1295-D: Deprecated declaration set_board - give arg types
+  void set_board();
+main.c(38): warning:  #1295-D: Deprecated declaration clr_board - give arg types
+  void clr_board();
+main.c(56): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=492 RO-data=16 RW-data=0 ZI-data=1256  
+Program Size: Code=960 RO-data=32 RW-data=264 ZI-data=1640  
 FromELF: creating hex file...
-".\Objects\Counter.axf" - 0 Error(s), 3 Warning(s).
-Build Time Elapsed:  00:00:10
+".\Objects\Counter.axf" - 0 Error(s), 6 Warning(s).
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

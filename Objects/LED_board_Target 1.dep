@@ -1,4 +1,5 @@
 Dependencies for Project 'LED_board', Target 'Target 1': (DO NOT MODIFY !)
 F (.\Startup.s)(0x559D1A08)(--cpu ARM7TDMI -g --apcs=interwork -ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 524"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
-F (.\main.c)(0x5AD23628)(--c99 -c --cpu ARM7TDMI -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="524"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5AE2116E)(--c99 -c --cpu ARM7TDMI -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="524"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (D:\Keil_v5\ARM\INC\Philips\LPC21xx.h)(0x559D1A50)
+F (.\taha.h)(0x5ADA15E4)()
